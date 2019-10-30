@@ -1,7 +1,10 @@
 package com.example.demorecyclerview
 
+import android.app.DownloadManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import okhttp3.*
+import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,6 +18,20 @@ class MainActivity : AppCompatActivity() {
     fun getJson(){
 
         val url ="https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1)"
+        val request = Request.Builder().url(url).build()
+        val client = OkHttpClient()
+        client.newCall(request).enqueue(object : Callback{
+
+            override fun onFailure(call: Call, e: IOException) {
+
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+
+            }
+
+
+        })
 
     }
 }
