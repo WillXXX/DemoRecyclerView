@@ -29,10 +29,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call, response: Response) {
-                //Lib Gson do Google
-                val body = response.body()?.string()
-                val gsom = GsonBuilder().create()
-                val homeFeed = gsom.fromJson(body, HomeFeed::class.java)
+
+                val body = response?.body()?.string()
+                val gson = GsonBuilder().create()
+                val homeFeed = gson.fromJson(body, HomeFeed::class.java)
             }
 
 
