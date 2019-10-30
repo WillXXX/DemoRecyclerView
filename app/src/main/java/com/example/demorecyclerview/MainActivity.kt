@@ -3,6 +3,8 @@ package com.example.demorecyclerview
 import android.app.DownloadManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import okhttp3.*
 import java.io.IOException
 
@@ -23,11 +25,14 @@ class MainActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback{
 
             override fun onFailure(call: Call, e: IOException) {
-
+               println("Fail")
             }
 
             override fun onResponse(call: Call, response: Response) {
-
+                //Lib Gson do Google
+                val body = response.body()?.string()
+                val gsom = GsonBuilder().create()
+                val homeFeed = gsom.fromJson(body, HomeFeed::class.java)
             }
 
 
