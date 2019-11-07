@@ -1,5 +1,7 @@
 package com.example.demorecyclerview
 
-class MyAdapter(){
+import androidx.recyclerview.widget.RecyclerView
+
+class MyAdapter(val getListWeb: GetListWeb): RecyclerView.Adapter<>{
 
 }
