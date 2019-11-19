@@ -11,7 +11,7 @@ class MyAdapter(val getListWeb: GetListWeb): RecyclerView.Adapter<MyAdapter.Cust
     }
 
     override fun getItemCount(): Int {
-
+        return 1
     }
 
     override fun onBindViewHolder(holder: MyAdapter.CustomViewHolder, position: Int) {
